@@ -2,8 +2,8 @@
 
 interface Gateway
 {
-    public function findStripCustomer();
-    public function findStripeSubscriptionByCustomer();
+    public function findCustomer();
+    public function findSubscriptionByCustomer();
 }
 
 class Subscription
@@ -21,7 +21,7 @@ class Subscription
 
     public function cancel(): void
     {
-        $this->gateway->findStripeSubscriptionByCustomer();
+        $this->gateway->findSubscriptionByCustomer();
     }
 
     public function invoice()
@@ -38,13 +38,30 @@ class Subscription
 class Stripe implements Gateway
 {
 
-    public function findStripCustomer()
+    public function findCustomer()
     {
 
     }
 
-    public function findStripeSubscriptionByCustomer()
+    public function findSubscriptionByCustomer()
     {
 
     }
 }
+
+class BrainTree implements Gateway
+{
+
+    public function findCustomer()
+    {
+
+    }
+
+    public function findSubscriptionByCustomer()
+    {
+
+    }
+}
+
+$subscription = new Subscription(new Stripe());
+$subscription2 = new Subscription(new BrainTree());

@@ -25,4 +25,4 @@ class Person
 
 $bob = new Person('Bob');
 var_dump($bob->job());
-var_dump($bob->thingsThatKeepUpAtNight());
+//var_dump($bob->thingsThatKeepUpAtNight());
